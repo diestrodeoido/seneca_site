@@ -86,6 +86,7 @@
             border-radius: 6px;
             font-weight: 500;
             transition: background 0.3s;
+            display: inline-block;
         }
         
         .fallback a:hover {
@@ -94,41 +95,15 @@
     </style>
 </head>
 <body>
-    <div id="artifact-container">
-        <iframe 
-            src="https://claude.ai/public/artifacts/3d8c0ccc-ba32-41a3-bd57-0d11cb8e7bf4" 
-            title="SenecAI - Cartas y Emails de Séneca"
-            allowfullscreen
-            allow="clipboard-write"
-        ></iframe>
-    </div>
-    
-    <!-- Fallback para navegadores con restricciones -->
-    <div class="fallback" id="fallback">
+    <div id="artifact-container" className="fallback show">
         <h1>&lt;SENEC<span>AI</span>&gt;</h1>
-        <p>Si no ves el contenido arriba, accede directamente a SenecAI:</p>
-        <a href="https://claude.ai/public/artifacts/3d8c0ccc-ba32-41a3-bd57-0d11cb8e7bf4" target="_blank">Abrir SenecAI →</a>
+        <p>Continuando la conversación con Séneca</p>
+        <div style={{display: 'flex', gap: '20px', marginTop: '30px', flexWrap: 'wrap', justifyContent: 'center'}}>
+            <a href="https://claude.ai/public/artifacts/3d8c0ccc-ba32-41a3-bd57-0d11cb8e7bf4" target="_blank">📖 Abrir SenecAI</a>
+            <a href="https://diestrodeoido.substack.com" target="_blank">🔔 Suscribirse</a>
+        </div>
     </div>
     
-    <script>
-        // Detectar si el iframe se cargó correctamente
-        document.addEventListener('DOMContentLoaded', function() {
-            const iframe = document.querySelector('iframe');
-            let iframeLoaded = false;
-            
-            // Timeout de seguridad
-            setTimeout(function() {
-                if (!iframeLoaded) {
-                    document.getElementById('fallback').classList.add('show');
-                }
-            }, 5000);
-            
-            // Si el iframe carga, escondemos el fallback
-            iframe.onload = function() {
-                iframeLoaded = true;
-                document.getElementById('fallback').style.display = 'none';
-            };
-        });
-    </script>
+
 </body>
 </html>
